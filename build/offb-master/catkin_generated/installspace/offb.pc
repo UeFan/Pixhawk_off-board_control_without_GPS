@@ -1,0 +1,8 @@
+prefix=/home/fanyue/catkin_ws/install
+
+Name: offb
+Description: Description of offb
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/fanyue/catkin_ws/install/lib -loffb
+Requires: roscpp

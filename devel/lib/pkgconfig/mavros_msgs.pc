@@ -1,0 +1,8 @@
+prefix=/home/fanyue/catkin_ws/devel
+
+Name: mavros_msgs
+Description: Description of mavros_msgs
+Version: 0.24.0
+Cflags: -I/home/fanyue/catkin_ws/devel/include -I/home/fanyue/catkin_ws/src/mavros-0.24.0/mavros_msgs/include
+Libs: -L/home/fanyue/catkin_ws/devel/lib 
+Requires: geometry_msgs sensor_msgs geographic_msgs message_runtime std_msgs

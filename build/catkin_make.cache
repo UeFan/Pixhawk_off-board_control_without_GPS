@@ -1,0 +1,2 @@
+beginner_tutorials:beginner_tutorials2:offb-master
+-DCATKIN_DEVEL_PREFIX=/home/fanyue/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/fanyue/catkin_ws/install -G Unix Makefiles
