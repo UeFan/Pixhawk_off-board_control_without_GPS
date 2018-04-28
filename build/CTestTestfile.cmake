@@ -6,5 +6,4 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(beginner_tutorials)
-subdirs(beginner_tutorials2)
-subdirs(offb-master)
+subdirs(offb_velocity)

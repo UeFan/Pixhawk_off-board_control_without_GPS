@@ -155,6 +155,7 @@ void sendCommand()
  */
 int main(int argc, char **argv)
 {
+	int toStart = 0;
     ros::init(argc, argv, "offb_main");
     ros::NodeHandle nh;
 
@@ -213,6 +214,7 @@ int main(int argc, char **argv)
                 if( arming_client.call(arm_cmd) &&
                         arm_cmd.response.success) {
                     ROS_WARN_STREAM("Vehicle armed !!!");
+		    toStart = 1;
                     updateControlCommandStats();
                 }
                 last_request = ros::Time::now();
@@ -220,28 +222,107 @@ int main(int argc, char **argv)
         }
 
         sendCommand();
-
-        if ( actionOrder == 0 )
+	if (toStart == 0)
+	{
+	  vel.linear.x = 0;
+	  vel.linear.y = 0;
+	  vel.linear.z = 0;
+	  
+          local_vel_pub.publish(vel);
+	}
+        if (toStart == 1 && actionOrder == 0)
         {
-          if (local_pose.pose.position.z - original_z <= 2)
-          {
-            vel.linear.z = 0.5;
-            local_vel_pub.publish(vel);
-          }
-          else
-          {
-            vel.linear.z = 0.0;
-            local_vel_pub.publish(vel);
-            timeToSendNextVelocity == 0 ? actionOrder++ : timeToSendNextVelocity-- ;
-          }
+      ROS_WARN_STREAM("\nup");
+	  vel.linear.z = 0.5;
+	vel.linear.x = 0.2;
+	  
+          local_vel_pub.publish(vel);
+	  timeToSendNextVelocity --;
+	  if(timeToSendNextVelocity == 0)
+	    {
+		actionOrder++;
+		timeToSendNextVelocity = 30;
+	    }
+		
         }
-
         else if (actionOrder == 1)
         {
-	  vel.linear.x = 0.5;
+      ROS_WARN_STREAM("\nstop");
+	  vel.linear.x = 0.2;
+	  vel.linear.y = 0;
+	  vel.linear.z = 0;
+	  
           local_vel_pub.publish(vel);
+	  timeToSendNextVelocity --;
+	  if(timeToSendNextVelocity == 0)
+	    {
+		actionOrder++;
+		timeToSendNextVelocity = 60;
+	    }
+		
         }
-        printCurrentMotion();
+
+        else if (actionOrder == 2)
+        {
+      ROS_WARN_STREAM("\nforward");
+	  vel.linear.x = 0.22;
+	  vel.linear.y = -0.98;
+	  
+          local_vel_pub.publish(vel);
+	  timeToSendNextVelocity --;
+	  if(timeToSendNextVelocity == 0)
+	    {
+		actionOrder++;
+		timeToSendNextVelocity = 10;
+	    }
+		
+        }
+        else if (actionOrder == 3)
+        {
+      ROS_WARN_STREAM("\nturn");
+	  vel.linear.x = 0.98;
+	  vel.linear.y = 0.02;
+	  
+          local_vel_pub.publish(vel);
+	  timeToSendNextVelocity --;
+	  if(timeToSendNextVelocity == 0)
+	    {
+		actionOrder++;
+		timeToSendNextVelocity = 60;
+	    }
+		
+        }
+        else if (actionOrder == 4)
+        {
+      ROS_WARN_STREAM("\nforward");
+	  vel.linear.x = 0.37;
+	  vel.linear.y = -0.33;
+	  vel.linear.z = -0.2;
+	  
+          local_vel_pub.publish(vel);
+	  timeToSendNextVelocity --;
+	  if(timeToSendNextVelocity == 0)
+	    {
+		actionOrder++;
+		timeToSendNextVelocity = 66;
+	    }
+		
+        }
+        else if (actionOrder == 4)
+        {
+      ROS_WARN_STREAM("\n------------------");
+	  vel.linear.x = 0;
+	  vel.linear.y = 0;
+	  
+          local_vel_pub.publish(vel);
+	  timeToSendNextVelocity --;
+	  if(timeToSendNextVelocity == 0)
+	    {
+
+	    }
+		
+        }
+        //printCurrentMotion();
 
         ros::spinOnce();
         rate.sleep();
