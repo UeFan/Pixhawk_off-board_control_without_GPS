@@ -1,6 +1,6 @@
 src/beginner_tutorials
 src/mavlink
 src/mavros
-./devel
-./build
-./.catkin_workspace
+devel/
+build/
+.catkin_workspace

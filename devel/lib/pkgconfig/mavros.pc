@@ -1,8 +1,0 @@
-prefix=/home/fanyue/catkin_ws/devel
-
-Name: mavros
-Description: Description of mavros
-Version: 0.24.0
-Cflags: -I/home/fanyue/catkin_ws/src/mavros-0.24.0/mavros/include -I/usr/include -I/usr/include/eigen3
-Libs: -L/home/fanyue/catkin_ws/devel/lib -lmavros /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libGeographic.so
-Requires: diagnostic_msgs diagnostic_updater pluginlib roscpp sensor_msgs nav_msgs geographic_msgs std_msgs tf2_ros geometry_msgs libmavconn message_runtime eigen_conversions mavros_msgs

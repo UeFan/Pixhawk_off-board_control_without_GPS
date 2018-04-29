@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC   -shared -Wl,-soname,liboff_board.so -o /home/fanyue/catkin_ws/devel/lib/liboff_board.so CMakeFiles/off_board.dir/src/off_board.cpp.o 

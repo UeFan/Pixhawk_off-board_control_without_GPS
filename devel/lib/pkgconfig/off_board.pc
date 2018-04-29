@@ -1,8 +1,0 @@
-prefix=/home/fanyue/catkin_ws/devel
-
-Name: off_board
-Description: Description of off_board
-Version: 0.1.0
-Cflags: 
-Libs: -L/home/fanyue/catkin_ws/devel/lib -loff_board
-Requires: roscpp
