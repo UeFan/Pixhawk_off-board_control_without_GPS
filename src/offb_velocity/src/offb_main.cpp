@@ -1,11 +1,8 @@
 /**
  * @file offb_main.cpp
- * @author Julian Oes <julian@oes.ch>
  * @license BSD 3-clause
  *
  * @brief ROS node to do offboard control of PX4 through MAVROS.
- *
- * Initial code taken from http://dev.px4.io/ros-mavros-offboard.html
  */
 
 #include <ros/ros.h>
