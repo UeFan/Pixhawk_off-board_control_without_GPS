@@ -1,0 +1,13 @@
+<launch>
+    <arg name="spin_rate"          default="20" />
+    <arg name="takeoff_vel"         default="0" />
+    <arg name="takeoff_time"          default="20" />
+    <arg name="joy_type"              default="shield" />
+
+    <node name="offb" pkg="offb" type="offb_main" output="screen">
+        <param name="spin_rate"           value="$(arg spin_rate)" />
+        <param name="takeoff_vel"         value="$(arg takeoff_vel)" />
+        <param name="takeoff_time"          value="$(arg takeoff_time)" />
+        <param name="joy_type"              value="$(arg joy_type)" />
+    </node>    
+</launch>
