@@ -1,3 +1,0 @@
-<launch>
-  <node name="offb" pkg="offb" type="offb_main" output="screen" />
-</launch>
