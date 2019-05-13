@@ -1,4 +1,4 @@
-# offb_velocity_control_without_GPS
+# Pixhawk_off-board_control_without_GPS
 
 Offboard control using [ROS](http://www.ros.org) and [MAVROS](https://github.com/mavlink/mavros) for [PX4](https://github.com/PX4/Firmware).
 
